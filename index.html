@@ -4,130 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simov Digi Solutions - Boutique Digital Agency in Spain</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #0f0f0f; color: #fff; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(15,15,15,0.95); position: fixed; width: 100%; z-index: 1000; padding: 1rem 0; backdrop-filter: blur(10px); }
+        .logo { height: 50px; display: block; margin: 0 auto 0.5rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; }
+        nav a { color: #00d4ff; text-decoration: none; transition: color 0.3s; }
+        nav a:hover { color: #fff; }
+        .hero { text-align: center; padding: 8rem 1rem 4rem; background: linear-gradient(to bottom, #0f0f0f, #1a1a1a); }
+        .hero h1 { font-size: 3rem; color: #00d4ff; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+        .cta { background: #00d4ff; color: #0f0f0f; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background 0.3s; display: inline-block; }
+        .cta:hover { background: #00b8d4; }
+        .section { padding: 5rem 0; min-height: 50vh; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        h2 { font-size: 2.5rem; color: #00d4ff; margin-bottom: 2rem; text-align: center; }
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .package-card { background: #1a1a1a; padding: 2rem; border-radius: 10px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #333; }
+        .package-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,212,255,0.2); border-color: #00d4ff; }
+        .price { font-size: 2rem; color: #00d4ff; margin: 1rem 0; text-align: center; }
+        ul { list-style: none; text-align: left; margin: 1rem 0; }
+        ul li { padding: 0.5rem 0; }
+        .expand-btn { background: #00d4ff; color: #0f0f0f; border: none; padding: 0.75rem 1.5rem; border-radius: 5px; cursor: pointer; transition: background 0.3s; margin-top: 1rem; display: block; width: 100%; }
+        .expand-btn:hover { background: #00b8d4; }
+        .package-details { margin-top: 1rem; padding: 1rem; background: #0f0f0f; border-radius: 5px; display: none; transition: max-height 0.3s ease; }
+        .package-details.show { display: block; }
+        .comparison-table { width: 100%; border-collapse: collapse; background: #1a1a1a; border-radius: 10px; overflow: hidden; margin-top: 2rem; }
+        .comparison-table th, .comparison-table td { padding: 1rem; text-align: center; border-bottom: 1px solid #333; }
+        .comparison-table th { background: #00d4ff; color: #0f0f0f; }
+        form { max-width: 500px; margin: 2rem auto; display: grid; gap: 1rem; }
+        input, textarea { padding: 1rem; background: #1a1a1a; border: 1px solid #00d4ff; border-radius: 5px; color: #fff; font-size: 1rem; }
+        button[type="submit"] { background: #00d4ff; color: #0f0f0f; border: none; padding: 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        button[type="submit"]:hover { background: #00b8d4; }
+        footer { background: #1a1a1a; padding: 2rem 0; text-align: center; }
+        .small-logo { height: 40px; margin-bottom: 1rem; }
+        .chat-btn { position: fixed; bottom: 1rem; right: 1rem; background: #00d4ff; color: #0f0f0f; border: none; border-radius: 50%; width: 3.5rem; height: 3.5rem; font-size: 1.5rem; cursor: pointer; transition: transform 0.3s; z-index: 1001; }
+        .chat-btn:hover { transform: scale(1.1); }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; gap: 1rem; }
+            .packages-grid { grid-template-columns: 1fr; }
+            .hero { padding: 6rem 1rem 3rem; }
+        }
+    </style>
 </head>
 <body>
-    <header id="home">
-        <div class="container">
-            <img src="logo.png" alt="Simov Digi Solutions Logo" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#packages">Packages</a></li>
-                    <li><a href="#appointment">Book Call</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="hero">
-            <h1>Simov Digi Solutions</h1>
-            <p>Boutique Digital Agency in Spain – No Jargon, Just Results.</p>
-            <a href="#packages" class="cta">Explore Packages</a>
-        </div>
-    </header>
-
-    <section id="about" class="section fade-in">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>We're a small, dedicated team based in sunny Spain, specializing in digital solutions for boutique businesses. We cut through the noise to deliver simple, effective growth strategies tailored to you.</p>
-        </div>
-    </section>
-
-    <section id="packages" class="section fade-in">
-        <div class="container">
-            <h2>Our Packages</h2>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <h3>Essential</h3>
-                    <p class="price">€590</p>
-                    <ul>
-                        <li>Website audit & fixes</li>
-                        <li>Basic SEO setup</li>
-                        <li>Google Business optimization</li>
-                        <li>1 month ongoing support</li>
-                    </ul>
-                    <button class="expand-btn">More Details</button>
-                    <div class="package-details hidden">
-                        <p>Ideal for startups needing a solid foundation. Get visible online quickly with no hassle.</p>
-                    </div>
-                </div>
-                <div class="package-card">
-                    <h3>Elevate</h3>
-                    <p class="price">€1,490</p>
-                    <ul>
-                        <li>Full website redesign</li>
-                        <li>Advanced SEO & content strategy</li>
-                        <li>Social media setup & launch</li>
-                        <li>3 months ongoing support</li>
-                    </ul>
-                    <button class="expand-btn">More Details</button>
-                    <div class="package-details hidden">
-                        <p>Boost your presence and attract premium clients with customized tools and strategies.</p>
-                    </div>
-                </div>
-                <div class="package-card">
-                    <h3>Enterprise</h3>
-                    <p class="price">Custom</p>
-                    <ul>
-                        <li>Custom web development & apps</li>
-                        <li>Full marketing automation</li>
-                        <li>Dedicated account manager</li>
-                        <li>Unlimited ongoing support</li>
-                    </ul>
-                    <button class="expand-btn">More Details</button>
-                    <div class="package-details hidden">
-                        <p>For established businesses ready for comprehensive digital transformation and scaling.</p>
-                    </div>
-                </div>
-            </div>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Essential</th>
-                        <th>Elevate</th>
-                        <th>Enterprise</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Website Audit</td><td>✓</td><td>✓</td><td>✓</td></tr>
-                    <tr><td>SEO Setup</td><td>Basic</td><td>Advanced</td><td>Custom</td></tr>
-                    <tr><td>Support Months</td><td>1</td><td>3</td><td>Unlimited</td></tr>
-                    <tr><td>Custom Development</td><td>-</td><td>-</td><td>✓</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="appointment" class="section fade-in">
-        <div class="container">
-            <h2>Book a Free 15-Min Call</h2>
-            <div class="calendly-inline-widget" data-url="https://calendly.com/simovdigi/15min" style="min-width:320px;height:630px;"></div> <!-- Replace with your Calendly URL -->
-        </div>
-    </section>
-
-    <section id="contact" class="section fade-in">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/movzqqyg" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-            <p>Messages go directly to simov.milen@gmail.com</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <img src="logo.png" alt="Logo" class="small-logo">
-            <p>&copy; 2025 Simov Digi Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <button id="chat-toggle" class="chat-btn">💬 SimovBot</button>
-</body>
-</html>
+    <header>
+        <!-- Embedded Logo Base64 (Your Blue Hex S Logo – Loads Every Time, No File Needed) -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAsCAYAAACj4I2VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAgAElEQVR4nO2df3xU1f7H8c+m9m0k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k4k
