@@ -3,7 +3,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -20,14 +20,25 @@ sections.forEach(section => observer.observe(section));
 
 // Expand Package Details
 document.querySelectorAll('.expand-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent card click
         const details = btn.nextElementSibling;
         details.classList.toggle('show');
         btn.textContent = details.classList.contains('show') ? 'Hide Details' : 'More Details';
     });
 });
 
-// Chat Button Placeholder (Add Tidio script for real chat)
+// Package Card Hover (Optional Extra Interactivity)
+document.querySelectorAll('.package-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('expand-btn')) {
+            card.style.transform = 'scale(1.02)';
+            setTimeout(() => card.style.transform = '', 150);
+        }
+    });
+});
+
+// Chat Button (Placeholder for Tidio – Sign up at tidio.com for real)
 document.getElementById('chat-toggle').addEventListener('click', () => {
-    alert('SimovBot: Hi! How can I help with your digital project? (Integrate Tidio for full chat.)');
+    alert('SimovBot: Hi! Ask me about packages or book a call. (Add Tidio for live chat.)');
 });
